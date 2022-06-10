@@ -1,25 +1,119 @@
-city a:owl/Ontology dc/title:"Онтология для концепций связаных с архитектурой зданий" ns:https://purl.org/taganrog/city_architecture#
+city a:tabtree/OntologyPart dc/title:"Онтология архитектуры и элементов архитектуры" ns:https://purl.org/taganrog/city#
 	namespaces
 		rdf ns:http://www.w3.org/1999/02/22-rdf-syntax-ns#
 		rdfs ns:http://www.w3.org/2000/01/rdf-schema#
 		owl ns:http://www.w3.org/2002/07/owl#
 		dc ns:http://purl.org/dc/elements/1.1/
+		dcterms ns:http://purl.org/dc/terms/
+		skos ns:http://www.w3.org/2004/02/skos/core#
 		tabtree ns:https://purl.org/tabtree/core# no-prefix:<t>
-		city ns:https://purl.org/taganrog/city#
-	classes +a:owl/Class +section-hierarchy-relation:subclass-of
-		FrontDoor
-			LeftFrontDoor
-			CentralFrontDoor
-			RightFrontDoor
-		FrontDoorType owl/oneOf:`LeftFrontDoor,CentralFrontDoor,RightFrontDoor`
-		HouseType
-			HouseTypeByTimePeriod
-			HouseStyle
-		SovietArchitecturalType owl/oneOf:`Сталинка,Хрущевка,Брежневка,Конструктивизм,ДомРабочих` def:"#многоэтажный_дом имеет категории периодизации"
-		Брежневка a:HouseTypeByTimePeriod
-		ДомРабочих a:HouseType
-		Конструктивизм a:HouseStyle
-		Сталинка a:HouseTypeByTimePeriod
-		Хрущевка a:HouseTypeByTimePeriod
-	properties +a:rdf/Property +section-hierarchy-relation:subproperty-of
-		house-soviet-type domain:`(union-of city/ApartmentHouse city/District)` range:SovietArchitecturalType def:"#многоэтажный_дом имеет категорию периодизации. Эти категории наследуются #району."
+	classes +a:owl/Class +section-hierarchy-inverse-relation:subclass-of
+		Аспект_здания
+		Здание
+			Здание_с_определенной_функцией
+		Классификация_здания
+			Классификация_по_эпохе
+			Классификация_по_функционалу
+			Классификация_по_архитектурному_стилю
+	properties +a:rdf/Property +section-hierarchy-inverse-relation:subproperty-of
+		; house-soviet-type domain:`(union-of city/ApartmentHouse city/District)` range:SovietArchitecturalType def:"#многоэтажный_дом имеет категорию периодизации. Эти категории наследуются #району."
+		тип_здания domain:Здание range:Классификация_здания
+		имеет-аспект domain:Здание range:Аспект_здания
+		имеет-числовую-характеристику domain:Городской_объект range:rdfs/Literal
+			число-окон domain:Здание
+	individuals +a:owl/Thing +section-hierarchy-inverse-relation:skos/broader
+		Архитектурный_элемент a:Аспект_здания +section-hierarchy-inverse-relation:skos/broader
+			Арка
+			Аттик
+			Балюстрада
+				Балюстрада_входа
+			Вход
+				Ворота
+				Дверь
+					Входная_дверь_слева
+					Входная_дверь_по_центру
+					Входная_дверь_справа
+			Карниз
+				Венчающий_карниз
+				Межэтажный_карниз
+				Цокольный_карниз
+			Колонна
+				Квадратная_колонна
+				Округлая_колонна
+				Угловая_колонна
+			Кронштейн
+			Ложный_элемент
+				Пилястра
+				Полубалюстрада
+				Тумба
+			Обелиск
+			Ограждение
+				Балкон
+			Окно
+				Коробовое_окно
+				Круглое_окно
+				Полуциркульное_окно
+			Пилястра
+			Розетка
+			Руст
+			Статуя
+			Триглиф
+			Филенка
+			Фриз
+			Фронтон
+		Архитектурный_комплекс +section-hierarchy-inverse-relation:dcterms/isPartOf
+			Вход
+				Ступени
+				Крыльцо
+				Балюстрада_входа
+				Колонны_входа
+				Навес
+				Дверь
+					Наличник
+			Карниз
+				Карнизный_пояс
+			Колонна
+				Основание_колонны
+				Ствол_колонны
+				Капитель
+				Абака
+			Ограждение
+				Балюстрада
+					Балясина
+				Навершие
+				Решетка
+			Окно
+				Замковый_камень
+				Откос
+				Подоконник
+				Сандрик
+				Ставни
+			Фронтон
+				Тимпан
+		Здание +section-hierarchy-inverse-relation:dcterms/isPartOf
+			Пристройка
+			Чердак
+			Подвал
+		Архитектурный_стиль a:Классификация_по_архитектурному_стилю +a:Классификация_по_архитектурному_стилю	
+			Ампир
+			Архитектурный_классицизм
+				Александровский_классицизм
+			Барокко
+			Восточный
+			Готика
+				Неоготика
+			Модерн
+			Псевдорусский_стиль
+			Русский_стиль
+			Русско-византийский_стиль
+			Советский_архитектурный_стиль def:"#многоэтажный_дом имеет категории периодизации"
+				Конструктивизм
+				Сталинский_ампир
+			Эклектика
+				Николаевский_эклектизм
+				Александровский_эклектизм
+		Здание_определенной_эпохи a:Классификация_по_эпохе +a:Классификация_по_эпохе
+			Сталинка
+			Хрущевка
+			Брежневка
+			
