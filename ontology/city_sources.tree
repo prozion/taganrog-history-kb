@@ -1,0 +1,51 @@
+City_sources a:tabtree/OntologyPart dc/title:"Онтология для описания использования документов-источников" dc/author:"Денис Ширшов" ns:https://purl.org/taganrog/city#
+	namespaces
+		rdf ns:http://www.w3.org/1999/02/22-rdf-syntax-ns#
+		rdfs ns:http://www.w3.org/2000/01/rdf-schema#
+		owl ns:http://www.w3.org/2002/07/owl#
+		dc ns:http://purl.org/dc/elements/1.1/
+		foaf ns:http://xmlns.com/foaf/0.1/
+		tabtree ns:https://purl.org/tabtree/core#
+		tf ns:https://purl.org/tabtree/time#
+		tc ns:https://purl.org/tabtree/contacts#
+	classes +a:owl/Class +section-hierarchy-inverse-relation:subclass-of
+		Автор subclass-of:foaf/Person
+		Архив
+		Индекс_объекта rdfs/comment:"Индекс объекта, однозначно идентифицирующий его в какой-либо информационной системе" subclass-of:rdfs/Literal
+		Источник
+			Книга
+				Монография
+			Периодическое_издание
+				Журнал
+					Научный_журнал
+				Газета
+			Сайт
+			Тезисы_докладов
+		Локация_источника
+			Url eq-class:tc/Url
+			Локация_в_файловой_системе
+				Абсолютный_файловый_путь
+				Относительный_файловый_путь
+		Раздел_источника
+		Частота_публикации
+	properties +a:rdf/Property +section-hierarchy-inverse-relation:subproperty-of
+		_и range:Источник
+		файл range:Локация_в_файловой_системе
+			atxt 
+		автор range:Автор
+			владелец-сайта domain:Сайт
+		архив range:Архив
+		индекс
+			индекс_источника
+				doi
+				isbn
+			индекс_городского_объекта domain:Городской_объект range:Индекс_объекта
+				wm rdfs/comment:"ID объекта в викимапии"
+		короткий-id domain:Источник
+		тип-раздела-источника domain:Источник range:Раздел_источника
+		частота-в-неделю domain:Периодическое_издание range:Частота_публикации
+	individuals
+		Полоса a:Раздел_источника
+		Страница a:Раздел_источника
+		Том a:Раздел_источника
+		

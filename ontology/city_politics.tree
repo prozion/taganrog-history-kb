@@ -1,13 +1,12 @@
-city a:tabtree/OntologyPart dc/title:"Онтология для концепций связаных с городской средой и политикой города" ns:https://purl.org/taganrog/city#
+City_politics a:tabtree/OntologyPart dc/title:"Онтология для концепций связаных с городской средой и политикой города" ns:https://purl.org/taganrog/city#
 	namespaces
 		rdf ns:http://www.w3.org/1999/02/22-rdf-syntax-ns#
 		rdfs ns:http://www.w3.org/2000/01/rdf-schema#
 		owl ns:http://www.w3.org/2002/07/owl#
 		dc ns:http://purl.org/dc/elements/1.1/
-		tabtree ns:https://purl.org/tabtree/core# no-prefix:<t>
-		city ns:https://purl.org/taganrog/city#
+		tabtree ns:https://purl.org/tabtree/core#
 	classes +a:owl/Class +section-hierarchy-inverse-relation:subclass-of
-		Базовая_ячейка eq-class:`(union-of city/Apartment city/Household)` def:"#Квартира и #Домовладение –  базовые ячейки административной части. Эти ячейки складывают население города, образуют самоуправление."
+		Базовая_ячейка eq-class:`(union-of city/Apartment city/Household)` деф:"#Квартира и #Домовладение –  базовые ячейки административной части. Эти ячейки складывают население города, образуют самоуправление."
 		Управляющая_компания
 		Избирательный_участок
 	properties +a:rdf/Property +section-hierarchy-inverse-relation:subproperty-of

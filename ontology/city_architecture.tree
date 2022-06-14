@@ -1,4 +1,4 @@
-city a:tabtree/OntologyPart dc/title:"Онтология архитектуры и элементов архитектуры" ns:https://purl.org/taganrog/city#
+City_architecture a:tabtree/OntologyPart dc/title:"Онтология архитектуры и элементов архитектуры" ns:https://purl.org/taganrog/city#
 	namespaces
 		rdf ns:http://www.w3.org/1999/02/22-rdf-syntax-ns#
 		rdfs ns:http://www.w3.org/2000/01/rdf-schema#
@@ -6,8 +6,9 @@ city a:tabtree/OntologyPart dc/title:"Онтология архитектуры 
 		dc ns:http://purl.org/dc/elements/1.1/
 		dcterms ns:http://purl.org/dc/terms/
 		skos ns:http://www.w3.org/2004/02/skos/core#
-		tabtree ns:https://purl.org/tabtree/core# no-prefix:<t>
+		tabtree ns:https://purl.org/tabtree/core#
 	classes +a:owl/Class +section-hierarchy-inverse-relation:subclass-of
+		Архитектурный_стиль
 		Аспект_здания
 		Здание
 			Здание_с_определенной_функцией
@@ -16,7 +17,8 @@ city a:tabtree/OntologyPart dc/title:"Онтология архитектуры 
 			Классификация_по_функционалу
 			Классификация_по_архитектурному_стилю
 	properties +a:rdf/Property +section-hierarchy-inverse-relation:subproperty-of
-		; house-soviet-type domain:`(union-of city/ApartmentHouse city/District)` range:SovietArchitecturalType def:"#многоэтажный_дом имеет категорию периодизации. Эти категории наследуются #району."
+		; house-soviet-type domain:`(union-of city/ApartmentHouse city/District)` range:SovietArchitecturalType деф:"#многоэтажный_дом имеет категорию периодизации. Эти категории наследуются #району."
+		арх-стиль domain:Здание range:Архитектурный_стиль
 		тип_здания domain:Здание range:Классификация_здания
 		имеет-аспект domain:Здание range:Аспект_здания
 		имеет-числовую-характеристику domain:Городской_объект range:rdfs/Literal
@@ -94,10 +96,11 @@ city a:tabtree/OntologyPart dc/title:"Онтология архитектуры 
 			Пристройка
 			Чердак
 			Подвал
-		Архитектурный_стиль a:Классификация_по_архитектурному_стилю +a:Классификация_по_архитектурному_стилю	
+		Классификация_по_архитектурному_стилю +a:Архитектурный_стиль
 			Ампир
 			Архитектурный_классицизм
 				Александровский_классицизм
+				Безордерный_классицизм
 			Барокко
 			Восточный
 			Готика
@@ -106,7 +109,7 @@ city a:tabtree/OntologyPart dc/title:"Онтология архитектуры 
 			Псевдорусский_стиль
 			Русский_стиль
 			Русско-византийский_стиль
-			Советский_архитектурный_стиль def:"#многоэтажный_дом имеет категории периодизации"
+			Советский_архитектурный_стиль деф:"#многоэтажный_дом имеет категории периодизации"
 				Конструктивизм
 				Сталинский_ампир
 			Эклектика

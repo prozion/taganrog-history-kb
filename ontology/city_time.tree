@@ -1,35 +1,46 @@
-city a:tabtree/OntologyPart dc/title:"Онтология для городских концепций, связанных со временем" dc/author:"Денис Ширшов" ns:https://purl.org/taganrog/city#
+City_time a:tabtree/OntologyPart dc/title:"Онтология для городских концепций, связанных со временем" dc/author:"Денис Ширшов" ns:https://purl.org/taganrog/city#
 	namespaces
 		rdf ns:http://www.w3.org/1999/02/22-rdf-syntax-ns#
 		rdfs ns:http://www.w3.org/2000/01/rdf-schema#
 		owl ns:http://www.w3.org/2002/07/owl#
 		dc ns:http://purl.org/dc/elements/1.1/
 		foaf ns:http://xmlns.com/foaf/0.1/
-		tabtree ns:https://purl.org/tabtree/core# no-prefix:<t>
+		tabtree ns:https://purl.org/tabtree/core#
 		tf ns:https://purl.org/tabtree/time#
 	classes +a:owl/Class +section-hierarchy-inverse-relation:subclass-of
 		Категория_по_дате_постройки subclass-of:Категория +section-hierarchy-inverse-relation:a
-			Здание_18_века
-			Здание_19_века
-			Дата_постройки_1_половина_19_века
-			Дата_постройки_2_половина_19_века
-			Дата_постройки_1_половина_20_века
-			Дата_постройки_181x
-			Дата_постройки_182x
-			Дата_постройки_183x
-			Дата_постройки_184x
-			Дата_постройки_185x
-			Дата_постройки_186x
-			Дата_постройки_187x
-			Дата_постройки_188x
-			Дата_постройки_189x
-			Дата_постройки_190x
-			Дата_постройки_191x
-			Дата_постройки_192x
+			Строение_18_века
+			Строение_19_века
+			Строение_первой_половины_19_века
+			Строение_второй_половины_19_века
+			Строение_первой_половины_20_века
+			Строение_181x_годов
+			Строение_182x_годов
+			Строение_183x_годов
+			Строение_184x_годов
+			Строение_185x_годов
+			Строение_186x_годов
+			Строение_187x_годов
+			Строение_188x_годов
+			Строение_189x_годов
+			Строение_190x_годов
+			Строение_191x_годов
+			Строение_192x_годов
 	properties +a:rdf/Property +section-hierarchy-inverse-relation:subproperty-of
+		время-работы range:tf/RegularTimeInterval
+		год range:tf/Year
+			год-верхняя-граница
+			год-нижняя-граница
 		начало-существование
-			построено domain:Здание range:tf/Date def:"#многоэтажный_дом имеет категории возраста (#$дата постройки)"
-			составлен-план
+			конец eq-property:tf/end
+			начало eq-property:tf/start
+				начало-здания domain:Здание range:tf/Date деф:"#многоэтажный_дом имеет категории возраста (#$дата постройки)"
+					построено 
+						построено-раннее
+						построено-позднее
+					сдано
+				составлен-план
 		прекратило-существование
 			снесено
 			уничтожено
+	individuals

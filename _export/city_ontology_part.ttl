@@ -1,0 +1,399 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/>
+@prefix tc: <https://purl.org/tabtree/contacts#>
+@prefix foaf: <http://xmlns.com/foaf/0.1/>
+@prefix : <https://purl.org/taganrog/city#>
+@prefix owl: <http://www.w3.org/2002/07/owl#>
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+@prefix tf: <https://purl.org/tabtree/time#>
+@prefix tabtree: <https://purl.org/tabtree/core#>
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+
+:City
+  rdf:type owl:Ontology ;
+  dc:title "Онтология для основных концепций городской среды Таганрога в историческом контексте" ;
+  dc:author "Сергей Клунный", "Денис Ширшов" ;
+  :ns "https://purl.org/taganrog/city#" .
+
+:Url
+  owl:equivalentClass tc:Url ;
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Локация_источника .
+
+:_и
+  rdfs:range :Источник ;
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :properties .
+
+:atxt
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :файл .
+
+:doi
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :индекс_источника .
+
+:east
+  rdfs:range :Полярная_координата ;
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :properties .
+
+:isbn
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :индекс_источника .
+
+:lat
+  rdfs:range :Полярная_координата ;
+  rdfs:comment "широта" ;
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :properties .
+
+:lon
+  rdfs:range :Полярная_координата ;
+  rdfs:comment "долгота" ;
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :properties .
+
+:north
+  rdfs:range :Полярная_координата ;
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :properties .
+
+:south
+  rdfs:range :Полярная_координата ;
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :properties .
+
+:url
+  rdfs:range :Городской_объект ;
+  rdfs:domain :Url ;
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :properties .
+
+:west
+  rdfs:range :Полярная_координата ;
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :properties .
+
+:wm
+  rdfs:comment "ID объекта в викимапии" ;
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :индекс_городского_объекта .
+
+:wm-id
+  rdfs:domain :Городской_объект ;
+  rdfs:range rdfs:Literal ;
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :properties .
+
+:wm-url
+  rdfs:comment "ссылка на объект в викимапии" ;
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :url .
+
+:wm-категория
+  rdfs:domain :Городской_объект ;
+  rdfs:range rdfs:Literal ;
+  rdfs:comment "категория викимапии" ;
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :properties .
+
+:wm-название
+  rdfs:subPropertyOf :properties ;
+  rdf:type rdf:Property .
+
+:wm-номер-дома
+  rdfs:subPropertyOf :properties ;
+  rdf:type rdf:Property .
+
+:wm-редактор
+  rdfs:domain :Городской_объект ;
+  rdfs:range :Пользователь_Викимапии ;
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :properties .
+
+:wm-строка-улицы
+  rdfs:range rdfs:Literal ;
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :properties .
+
+:wm-число-комментариев
+  rdfs:domain :Городской_объект ;
+  rdfs:range rdfs:Literal ;
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :properties .
+
+:Абсолютный_файловый_путь
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Локация_в_файловой_системе .
+
+:Автор
+  rdfs:subClassOf :classes ;
+  rdf:type owl:Class .
+
+:Административное_здание
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Нежилое_здание .
+
+:Административный_район
+  skos:note "Официальное районирование, используемое властями и городскими службами" ;
+  rdf:type owl:Class .
+
+:Адрес
+  owl:equivalentClass :Адрес_1, :Адрес_2 .
+
+:Адрес_1
+  rdf:type owl:Restriction ;
+  owl:onProperty :улица ;
+  owl:someValuesFrom :Улица .
+
+:Адрес_2
+  rdf:type owl:Restriction ;
+  owl:onProperty :номер-дома ;
+  owl:someValuesFrom :Номер_дома .
+
+:Адрес_id
+  tabtree:regexp "[А-ЯЁёа-я\\-0-9_]+_[0-9]+(-[0-9а-я]+)?" ;
+  skos:note "Унифицированная запись адреса, e.g. 'Социалистическая_7-1а'" ;
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Значение .
+
+:Архив
+  rdf:type owl:Class ;
+  rdfs:subClassOf :classes .
+
+:Беседка
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Дворовая_постройка .
+
+:Вернакулярный_район
+  skos:note "Неформальное районирование, используемое в повседневной речи e.g. Богудония, Собачеевка, Простоквашино и т.д." ;
+  rdfs:seeAlso "facts/vernaculars.tree" ;
+  rdf:type owl:Class .
+
+:Водяная_колонка
+  rdf:type owl:Class .
+
+:Газета
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Периодическое_издание .
+
+:Гараж
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Подсобное_помещение .
+
+:Город
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Категория .
+
+:Городской_объект
+  owl:equivalentClass :Городской_объект_1 .
+
+:Городской_объект_1
+  rdf:type owl:Restriction ;
+  owl:onProperty :район ;
+  owl:hasValue :Район ;
+  :деф "Любой объект имеет категорию #Район" .
+
+:Дворовая_постройка
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Подсобное_помещение .
+
+:Дом_рабочих
+  :деф "В категорию #многоэтажный_дом входят несколько дореволюционных домов рабочих около Приморского парка" ;
+  rdf:type owl:Class .
+
+:Домовладение
+  skos:note "Категория присваивается частным домам и дворам, где владелец одна семья" ;
+  rdf:type owl:Class .
+
+:Доходный_дом
+  rdfs:subClassOf :Жилое_здание ;
+  :деф "#доходные_дома (числятся как ЖАКТы)" ;
+  rdf:type owl:Class .
+
+:ЖАКТ
+  :деф "Многоквартирный двор. Группа домов под одним номером и с одним двором." ;
+  rdf:type owl:Class .
+
+:Жилое_здание
+  rdf:type owl:Class .
+
+:Журнал
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Периодическое_издание .
+
+:Здание
+  owl:equivalentClass :Здание_ .
+
+:Здание_
+  rdf:type owl:Restriction ;
+  owl:onProperty :часть-территории ;
+  owl:someValuesFrom :Субрайон ;
+  :деф "Таким образом административная цепочка складывается так: Город – Район – Квартал/Микрорайон – домовладение/ЖАКТ+картира или многоэтажка+квартира." .
+
+:Значение
+  rdfs:subClassOf :Категория ;
+  rdf:type owl:Class .
+
+:Избирательный_округ
+  :деф "Сейчас #избирательный_округ совпадает с #район, но в перспективе будет отличаться." ;
+  rdf:type owl:Class .
+
+:Именное_название_улицы
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Название_улицы .
+
+:Индекс_объекта
+  rdfs:comment "Индекс объекта, однозначно идентифицирующий его в какой-либо информационной системе" ;
+  rdfs:subClassOf :classes ;
+  rdf:type owl:Class .
+
+:Источник
+  rdf:type owl:Class ;
+  rdfs:subClassOf :classes .
+
+:Категория
+  :деф "Значение есть уникальная категория" ;
+  rdf:type owl:Class ;
+  rdfs:subClassOf :classes .
+
+:Категория_по_дате_постройки
+  rdfs:subClassOf :classes ;
+  rdf:type owl:Class .
+
+:Квартал
+  owl:disjointWith :Микрорайон ;
+  :деф "В #кварталы не входят #микрорайоны." .
+
+:Квартира
+  owl:equivalentClass :Квартира_1, :Квартира_2 .
+
+:Квартира_1
+  rdf:type owl:Restriction ;
+  owl:onProperty :является-частью ;
+  owl:someValuesFrom "Многоквартирный_дом,ЖАКТ" ;
+  :деф "#Многоэтажный_дом и #ЖАКТ включают в себя #квартира." .
+
+:Квартира_2
+  rdf:type owl:Restriction ;
+  owl:onProperty :номер-квартиры ;
+  owl:someValuesFrom :Номер_квартиры ;
+  :деф "#Многоэтажный_дом и #ЖАКТ включают в себя #квартира." .
+
+:Книга
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Источник .
+
+:Колодец
+  rdf:type owl:Class .
+
+:Комплекс_зданий
+  owl:equivalentClass :Комплекс_зданий_ .
+
+:Комплекс_зданий_
+  rdf:type owl:Restriction ;
+  owl:onProperty :часть-территории ;
+  owl:someValuesFrom :Квартал ;
+  :деф "#Домовладения и #жакты складываются в #кварталы" ;
+  :question "Что делать в случае, если объект находится вне территории исторического квартала?" .
+
+:Конюшня
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Подсобное_помещение .
+
+:Координата
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Значение .
+
+:Крытый_рынок
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Торговое_здание .
+
+:Кузница
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Подсобное_помещение .
+
+:Культовое_здание
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Нежилое_здание .
+
+:Локация_в_файловой_системе
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Локация_источника .
+
+:Локация_источника
+  rdf:type owl:Class ;
+  rdfs:subClassOf :classes .
+
+:Магазин
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Торговое_здание .
+
+:Микрорайон
+  owl:equivalentClass :Микрорайон_ .
+
+:Микрорайон_
+  rdf:type owl:Restriction ;
+  owl:onProperty :состоит-из ;
+  owl:someValuesFrom :Многоквартирный_дом ;
+  :деф "#микрорайон это несколько #многоэтажных_домов, образующих связанное пространство" .
+
+:Многоквартирный_дом
+  owl:disjointWith :Доходный_дом ;
+  :деф "В категорию #многоэтажный_дом не входят многоэтажные #доходные_дома" ;
+  owl:equivalentClass :Многоквартирный_дом_1, :Многоквартирный_дом_2 .
+
+:Многоквартирный_дом_1
+  rdf:type owl:Restriction ;
+  owl:onProperty :часть-территории ;
+  owl:someValuesFrom :Субрайон ;
+  :деф "Многоэтажный дом как правило включен в #микрорайон, но иногда может быть включен в #квартал" .
+
+:Монография
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Книга .
+
+:Название_улицы
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Значение .
+
+:Научный_журнал
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Журнал .
+
+:Нежилое_здание
+  owl:differentFrom :Жилой_дом ;
+  rdf:type owl:Class .
+
+:Номер_дома
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Категория .
+
+:Номер_квартала
+  :деф "Кварталы пронумерованы сквозной нумерацией (первые 49 не используются, 50-186 кварталы старого города, дальше остальной город переразмечен сверху вниз слева направо)" ;
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Значение .
+
+:Номер_квартиры
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Значение .
+
+:Общежитие
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Жилое_здание .
+
+:Объект_с_адресом
+  :деф "#Домовладение/#ЖАКТ/#многоэтажка имеют ..." ;
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Объект_с_локацией .
+
+:Объект_с_локацией
+  rdf:type owl:Class .
+
+:Объект_с_полигональными_координатами
+  rdf:type owl:Class .
+
+:Объект_с_точечными_координатами
+  owl:equivalentClass :Объект_с_точечными_координатами_1 .

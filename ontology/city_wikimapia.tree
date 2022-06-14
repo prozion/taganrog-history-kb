@@ -1,0 +1,26 @@
+City_wikimapia a:tabtree/OntologyPart dc/title:"Онтология для скачанных данных с Викимапии" dc/author:"Денис Ширшов" ns:https://purl.org/taganrog/city# ;-wikimpaia#
+	namespaces
+		rdf ns:http://www.w3.org/1999/02/22-rdf-syntax-ns#
+		rdfs ns:http://www.w3.org/2000/01/rdf-schema#
+		owl ns:http://www.w3.org/2002/07/owl#
+		dc ns:http://purl.org/dc/elements/1.1/
+		tabtree ns:https://purl.org/tabtree/core#
+	classes +a:owl/Class +section-hierarchy-inverse-relation:subclass-of
+		Пользователь_Викимапии subclass-of:rdfs/Literal
+	properties +a:rdf/Property +section-hierarchy-inverse-relation:subproperty-of
+		east range:Полярная_координата
+		lat range:Полярная_координата rdfs/comment:"широта"
+		lon range:Полярная_координата rdfs/comment:"долгота"
+		north range:Полярная_координата
+		south range:Полярная_координата
+		url domain:Городской_объект range:Url
+			wm-url rdfs/comment:"ссылка на объект в викимапии"
+		west range:Полярная_координата
+		wm-id domain:Городской_объект range:rdfs/Literal
+		wm-категория domain:Городской_объект range:rdfs/Literal rdfs/comment:"категория викимапии"
+		wm-название subproperty-of:название
+		wm-номер-дома subproperty-of:номер-дома
+		wm-редактор domain:Городской_объект range:Пользователь_Викимапии
+		wm-строка-улицы range:rdfs/Literal
+		wm-число-комментариев domain:Городской_объект range:rdfs/Literal
+	individuals
