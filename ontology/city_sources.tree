@@ -8,7 +8,7 @@ City_sources a:tabtree/OntologyPart dc/title:"Онтология для опис
 		tabtree ns:https://purl.org/tabtree/core#
 		tf ns:https://purl.org/tabtree/time#
 		tc ns:https://purl.org/tabtree/contacts#
-	classes +a:owl/Class +section-hierarchy-inverse-relation:subclass-of
+	classes +a:owl/Class +hi-inv-rel:subclass-of
 		Автор subclass-of:foaf/Person
 		Архив
 		Индекс_объекта rdfs/comment:"Индекс объекта, однозначно идентифицирующий его в какой-либо информационной системе" subclass-of:rdfs/Literal
@@ -28,7 +28,7 @@ City_sources a:tabtree/OntologyPart dc/title:"Онтология для опис
 				Относительный_файловый_путь
 		Раздел_источника
 		Частота_публикации
-	properties +a:rdf/Property +section-hierarchy-inverse-relation:subproperty-of
+	properties +a:rdf/Property +hi-inv-rel:subproperty-of
 		_и range:Источник
 		файл range:Локация_в_файловой_системе
 			atxt 

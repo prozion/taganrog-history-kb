@@ -1,4 +1,4 @@
-quarters-streets section-hierarchy-relation:includes +section-hierarchy-inverse-relation:квартал
+quarters-streets hi-rel:includes +hi-inv-rel:квартал
 	Квартал_9 
 		Ленина_175
 	Квартал_17 

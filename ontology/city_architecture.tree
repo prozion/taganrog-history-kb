@@ -7,7 +7,7 @@ City_architecture a:tabtree/OntologyPart dc/title:"Онтология архит
 		dcterms ns:http://purl.org/dc/terms/
 		skos ns:http://www.w3.org/2004/02/skos/core#
 		tabtree ns:https://purl.org/tabtree/core#
-	classes +a:owl/Class +section-hierarchy-inverse-relation:subclass-of
+	classes +a:owl/Class +hi-inv-rel:subclass-of
 		Архитектурный_стиль
 		Аспект_здания
 		Здание
@@ -16,15 +16,15 @@ City_architecture a:tabtree/OntologyPart dc/title:"Онтология архит
 			Классификация_по_эпохе
 			Классификация_по_функционалу
 			Классификация_по_архитектурному_стилю
-	properties +a:rdf/Property +section-hierarchy-inverse-relation:subproperty-of
+	properties +a:rdf/Property +hi-inv-rel:subproperty-of
 		; house-soviet-type domain:`(union-of city/ApartmentHouse city/District)` range:SovietArchitecturalType деф:"#многоэтажный_дом имеет категорию периодизации. Эти категории наследуются #району."
 		арх-стиль domain:Здание range:Архитектурный_стиль
 		тип_здания domain:Здание range:Классификация_здания
 		имеет-аспект domain:Здание range:Аспект_здания
 		имеет-числовую-характеристику domain:Городской_объект range:rdfs/Literal
 			число-окон domain:Здание
-	individuals +a:owl/Thing +section-hierarchy-inverse-relation:skos/broader
-		Архитектурный_элемент a:Аспект_здания +section-hierarchy-inverse-relation:skos/broader
+	individuals +a:owl/Thing +hi-inv-rel:skos/broader
+		Архитектурный_элемент a:Аспект_здания +hi-inv-rel:skos/broader
 			Арка
 			Аттик
 			Балюстрада
@@ -63,7 +63,7 @@ City_architecture a:tabtree/OntologyPart dc/title:"Онтология архит
 			Филенка
 			Фриз
 			Фронтон
-		Архитектурный_комплекс +section-hierarchy-inverse-relation:dcterms/isPartOf
+		Архитектурный_комплекс +hi-inv-rel:dcterms/isPartOf
 			Вход
 				Ступени
 				Крыльцо
@@ -92,7 +92,7 @@ City_architecture a:tabtree/OntologyPart dc/title:"Онтология архит
 				Ставни
 			Фронтон
 				Тимпан
-		Здание +section-hierarchy-inverse-relation:dcterms/isPartOf
+		Здание +hi-inv-rel:dcterms/isPartOf
 			Пристройка
 			Чердак
 			Подвал

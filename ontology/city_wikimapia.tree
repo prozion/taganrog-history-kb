@@ -5,9 +5,9 @@ City_wikimapia a:tabtree/OntologyPart dc/title:"Онтология для ска
 		owl ns:http://www.w3.org/2002/07/owl#
 		dc ns:http://purl.org/dc/elements/1.1/
 		tabtree ns:https://purl.org/tabtree/core#
-	classes +a:owl/Class +section-hierarchy-inverse-relation:subclass-of
+	classes +a:owl/Class +hi-inv-rel:subclass-of
 		Пользователь_Викимапии subclass-of:rdfs/Literal
-	properties +a:rdf/Property +section-hierarchy-inverse-relation:subproperty-of
+	properties +a:rdf/Property +hi-inv-rel:subproperty-of
 		east range:Полярная_координата
 		lat range:Полярная_координата rdfs/comment:"широта"
 		lon range:Полярная_координата rdfs/comment:"долгота"

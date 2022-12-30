@@ -7,6 +7,6 @@ City_people a:tabtree/OntologyPart dc/title:"Онтология для конц�
 		foaf ns:http://xmlns.com/foaf/0.1/
 		tabtree ns:https://purl.org/tabtree/core#
 		tp ns:https://purl.org/tabtree/person#
-	classes +a:owl/Class +section-hierarchy-inverse-relation:subclass-of
+	classes +a:owl/Class +hi-inv-rel:subclass-of
 		Персона subclass-of:foaf/Person
-	properties +a:rdf/Property +section-hierarchy-inverse-relation:subproperty-of
+	properties +a:rdf/Property +hi-inv-rel:subproperty-of

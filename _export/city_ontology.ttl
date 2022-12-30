@@ -1,30 +1,31 @@
-@prefix dc: <http://purl.org/dc/elements/1.1/>
-@prefix tc: <https://purl.org/tabtree/contacts#>
-@prefix foaf: <http://xmlns.com/foaf/0.1/>
-@prefix : <https://purl.org/taganrog/city#>
-@prefix owl: <http://www.w3.org/2002/07/owl#>
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-@prefix tf: <https://purl.org/tabtree/time#>
-@prefix tabtree: <https://purl.org/tabtree/core#>
-@prefix skos: <http://www.w3.org/2004/02/skos/core#>
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+@prefix : <https://purl.org/taganrog/city#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix tc: <https://purl.org/tabtree/contacts#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix : <https://purl.org/taganrog/city#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tf: <https://purl.org/tabtree/time#> .
+@prefix tabtree: <https://purl.org/tabtree/core#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 
 :City
   rdf:type owl:Ontology ;
   dc:title "Онтология для основных концепций городской среды Таганрога в историческом контексте" ;
   dc:author "Сергей Клунный", "Денис Ширшов" ;
-  :ns "https://purl.org/taganrog/city#" .
+  :ns <https://purl.org/taganrog/city#> ;
+  owl:imports <http://purl.org/dc/elements/1.1/>, <https://purl.org/tabtree/contacts#>, <http://xmlns.com/foaf/0.1/>, <http://www.w3.org/2002/07/owl#>, <http://www.w3.org/2000/01/rdf-schema#>, <https://purl.org/tabtree/time#>, <https://purl.org/tabtree/core#>, <http://www.w3.org/2004/02/skos/core#>, <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 :Url
-  owl:equivalentClass tc:Url ;
   rdf:type owl:Class ;
+  owl:equivalentClass tc:Url ;
   rdfs:subClassOf :Локация_источника .
 
 :_и
-  rdfs:range :Источник ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:range :Источник .
 
 :atxt
   rdf:type rdf:Property ;
@@ -35,110 +36,98 @@
   rdfs:subPropertyOf :индекс_источника .
 
 :east
-  rdfs:range :Полярная_координата ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:range :Полярная_координата .
 
 :isbn
   rdf:type rdf:Property ;
   rdfs:subPropertyOf :индекс_источника .
 
 :lat
-  rdfs:range :Полярная_координата ;
-  rdfs:comment "широта" ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:range :Полярная_координата ;
+  rdfs:comment "широта" .
 
 :lon
-  rdfs:range :Полярная_координата ;
-  rdfs:comment "долгота" ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:range :Полярная_координата ;
+  rdfs:comment "долгота" .
 
 :north
-  rdfs:range :Полярная_координата ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:range :Полярная_координата .
 
 :south
-  rdfs:range :Полярная_координата ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:range :Полярная_координата .
 
 :url
-  rdfs:domain :Городской_объект ;
-  rdfs:range :Url ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:domain :Городской_объект ;
+  rdfs:range :Url .
 
 :west
-  rdfs:range :Полярная_координата ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:range :Полярная_координата .
 
 :wm
-  rdfs:comment "ID объекта в викимапии" ;
   rdf:type rdf:Property ;
+  rdfs:comment "ID объекта в викимапии" ;
   rdfs:subPropertyOf :индекс_городского_объекта .
 
 :wm-id
-  rdfs:domain :Городской_объект ;
-  rdfs:range rdfs:Literal ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:domain :Городской_объект ;
+  rdfs:range rdfs:Literal .
 
 :wm-url
-  rdfs:comment "ссылка на объект в викимапии" ;
   rdf:type rdf:Property ;
+  rdfs:comment "ссылка на объект в викимапии" ;
   rdfs:subPropertyOf :url .
 
 :wm-категория
+  rdf:type rdf:Property ;
   rdfs:domain :Городской_объект ;
   rdfs:range rdfs:Literal ;
-  rdfs:comment "категория викимапии" ;
-  rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:comment "категория викимапии" .
 
 :wm-название
-  rdfs:subPropertyOf :properties ;
-  rdf:type rdf:Property .
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :название .
 
 :wm-номер-дома
-  rdfs:subPropertyOf :properties ;
-  rdf:type rdf:Property .
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf :номер-дома .
 
 :wm-редактор
-  rdfs:domain :Городской_объект ;
-  rdfs:range :Пользователь_Викимапии ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:domain :Городской_объект ;
+  rdfs:range :Пользователь_Викимапии .
 
 :wm-строка-улицы
-  rdfs:range rdfs:Literal ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:range rdfs:Literal .
 
 :wm-число-комментариев
-  rdfs:domain :Городской_объект ;
-  rdfs:range rdfs:Literal ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:domain :Городской_объект ;
+  rdfs:range rdfs:Literal .
 
 :Абсолютный_файловый_путь
   rdf:type owl:Class ;
   rdfs:subClassOf :Локация_в_файловой_системе .
 
 :Автор
-  rdfs:subClassOf :classes ;
-  rdf:type owl:Class .
+  rdf:type owl:Class ;
+  rdfs:subClassOf foaf:Person .
 
 :Административное_здание
   rdf:type owl:Class ;
   rdfs:subClassOf :Нежилое_здание .
 
 :Административный_район
-  skos:note "Официальное районирование, используемое властями и городскими службами" ;
   rdf:type owl:Class ;
+  skos:note "Официальное районирование, используемое властями и городскими службами" ;
   rdfs:subClassOf :Район .
 
 :Адрес
@@ -146,23 +135,21 @@
   rdfs:subClassOf :Категория .
 
 :Адрес_id
-  tabtree:regexp "[А-ЯЁёа-я\\-0-9_]+_[0-9]+(-[0-9а-я]+)?" ;
-  skos:note "Унифицированная запись адреса, e.g. 'Социалистическая_7-1а'" ;
   rdf:type owl:Class ;
+  skos:note "Унифицированная запись адреса, e.g. 'Социалистическая_7-1а'" ;
   rdfs:subClassOf :Значение .
 
 :Архив
-  rdf:type owl:Class ;
-  rdfs:subClassOf :classes .
+  rdf:type owl:Class .
 
 :Беседка
   rdf:type owl:Class ;
   rdfs:subClassOf :Дворовая_постройка .
 
 :Вернакулярный_район
+  rdf:type owl:Class ;
   skos:note "Неформальное районирование, используемое в повседневной речи e.g. Богудония, Собачеевка, Простоквашино и т.д." ;
   rdfs:seeAlso "facts/vernaculars.tree" ;
-  rdf:type owl:Class ;
   rdfs:subClassOf :Район .
 
 :Водяная_колонка
@@ -190,23 +177,23 @@
   rdfs:subClassOf :Подсобное_помещение .
 
 :Дом_рабочих
-  :деф "В категорию #многоэтажный_дом входят несколько дореволюционных домов рабочих около Приморского парка" ;
   rdf:type owl:Class ;
+  :деф "В категорию #многоэтажный_дом входят несколько дореволюционных домов рабочих около Приморского парка" ;
   rdfs:subClassOf :Многоквартирный_дом .
 
 :Домовладение
-  skos:note "Категория присваивается частным домам и дворам, где владелец одна семья" ;
   rdf:type owl:Class ;
+  skos:note "Категория присваивается частным домам и дворам, где владелец одна семья" ;
   rdfs:subClassOf :Комплекс_зданий .
 
 :Доходный_дом
-  rdfs:subClassOf :Жилое_здание ;
-  :деф "#доходные_дома (числятся как ЖАКТы)" ;
-  rdf:type owl:Class .
+  rdf:type owl:Class ;
+  rdfs:subClassOf :ЖАКТ, :Жилое_здание ;
+  :деф "#доходные_дома (числятся как ЖАКТы)" .
 
 :ЖАКТ
-  :деф "Многоквартирный двор. Группа домов под одним номером и с одним двором." ;
   rdf:type owl:Class ;
+  :деф "Многоквартирный двор. Группа домов под одним номером и с одним двором." ;
   rdfs:subClassOf :Комплекс_зданий .
 
 :Жилое_здание
@@ -219,15 +206,15 @@
 
 :Здание
   rdf:type owl:Class ;
-  rdfs:subClassOf :Объект_с_точечными_координатами .
+  rdfs:subClassOf :Категория .
 
 :Значение
-  rdfs:subClassOf :Категория ;
-  rdf:type owl:Class .
+  rdf:type owl:Class ;
+  rdfs:subClassOf rdfs:Literal, :Категория .
 
 :Избирательный_округ
-  :деф "Сейчас #избирательный_округ совпадает с #район, но в перспективе будет отличаться." ;
   rdf:type owl:Class ;
+  :деф "Сейчас #избирательный_округ совпадает с #район, но в перспективе будет отличаться." ;
   rdfs:subClassOf :Район .
 
 :Именное_название_улицы
@@ -235,22 +222,20 @@
   rdfs:subClassOf :Название_улицы .
 
 :Индекс_объекта
+  rdf:type owl:Class ;
   rdfs:comment "Индекс объекта, однозначно идентифицирующий его в какой-либо информационной системе" ;
-  rdfs:subClassOf :classes ;
-  rdf:type owl:Class .
+  rdfs:subClassOf rdfs:Literal .
 
 :Источник
-  rdf:type owl:Class ;
-  rdfs:subClassOf :classes .
+  rdf:type owl:Class .
 
 :Категория
-  :деф "Значение есть уникальная категория" ;
   rdf:type owl:Class ;
-  rdfs:subClassOf :classes .
+  :деф "Значение есть уникальная категория" .
 
 :Категория_по_дате_постройки
-  rdfs:subClassOf :classes ;
-  rdf:type owl:Class .
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Категория .
 
 :Квартал
   rdf:type owl:Class ;
@@ -297,8 +282,7 @@
   rdfs:subClassOf :Локация_источника .
 
 :Локация_источника
-  rdf:type owl:Class ;
-  rdfs:subClassOf :classes .
+  rdf:type owl:Class .
 
 :Магазин
   rdf:type owl:Class ;
@@ -309,9 +293,9 @@
   rdfs:subClassOf :Субрайон .
 
 :Многоквартирный_дом
+  rdf:type owl:Class ;
   :деф "#многоэтажный_дом – жилой дом на несколько квартир советской или постсоветской поры." ;
   :question "в доме на несколько (и много) этажей может не быть квартир (в общежитии - комнаты), поэтому возможно лучше многоквартирный дом сделать подклассом многоэтажного, как более общего понятия." ;
-  rdf:type owl:Class ;
   rdfs:subClassOf :Жилое_здание .
 
 :Монография
@@ -327,17 +311,17 @@
   rdfs:subClassOf :Журнал .
 
 :Нежилое_здание
-  owl:differentFrom :Жилой_дом ;
   rdf:type owl:Class ;
+  owl:differentFrom :Жилой_дом ;
   rdfs:subClassOf :Здание .
 
 :Номер_дома
   rdf:type owl:Class ;
-  rdfs:subClassOf :Категория .
+  rdfs:subClassOf :Значение .
 
 :Номер_квартала
-  :деф "Кварталы пронумерованы сквозной нумерацией (первые 49 не используются, 50-186 кварталы старого города, дальше остальной город переразмечен сверху вниз слева направо)" ;
   rdf:type owl:Class ;
+  :деф "Кварталы пронумерованы сквозной нумерацией (первые 49 не используются, 50-186 кварталы старого города, дальше остальной город переразмечен сверху вниз слева направо)" ;
   rdfs:subClassOf :Значение .
 
 :Номер_квартиры
@@ -349,8 +333,8 @@
   rdfs:subClassOf :Жилое_здание .
 
 :Объект_с_адресом
-  :деф "#Домовладение/#ЖАКТ/#многоэтажка имеют ..." ;
   rdf:type owl:Class ;
+  :деф "#Домовладение/#ЖАКТ/#многоэтажка имеют ..." ;
   rdfs:subClassOf :Объект_с_локацией .
 
 :Объект_с_локацией
@@ -393,8 +377,8 @@
   rdf:type :Раздел_источника .
 
 :Пользователь_Викимапии
-  rdfs:subClassOf :classes ;
-  rdf:type owl:Class .
+  rdf:type owl:Class ;
+  rdfs:subClassOf rdfs:Literal .
 
 :Полярная_координата
   rdf:type owl:Class ;
@@ -405,12 +389,11 @@
   rdfs:subClassOf :Нежилое_здание .
 
 :Раздел_источника
-  rdf:type owl:Class ;
-  rdfs:subClassOf :classes .
+  rdf:type owl:Class .
 
 :Район
-  skos:note "Любой объект имеет эту категорию" ;
   rdf:type owl:Class ;
+  skos:note "Любой объект имеет эту категорию" ;
   rdfs:subClassOf :Территория .
 
 :Сайт
@@ -429,55 +412,55 @@
   rdf:type :Раздел_источника .
 
 :Строение_181x_годов
-  rdf:type :Категория_по_дате_постройки .
+  rdf:type owl:Class, :Категория_по_дате_постройки .
 
 :Строение_182x_годов
-  rdf:type :Категория_по_дате_постройки .
+  rdf:type owl:Class, :Категория_по_дате_постройки .
 
 :Строение_183x_годов
-  rdf:type :Категория_по_дате_постройки .
+  rdf:type owl:Class, :Категория_по_дате_постройки .
 
 :Строение_184x_годов
-  rdf:type :Категория_по_дате_постройки .
+  rdf:type owl:Class, :Категория_по_дате_постройки .
 
 :Строение_185x_годов
-  rdf:type :Категория_по_дате_постройки .
+  rdf:type owl:Class, :Категория_по_дате_постройки .
 
 :Строение_186x_годов
-  rdf:type :Категория_по_дате_постройки .
+  rdf:type owl:Class, :Категория_по_дате_постройки .
 
 :Строение_187x_годов
-  rdf:type :Категория_по_дате_постройки .
+  rdf:type owl:Class, :Категория_по_дате_постройки .
 
 :Строение_188x_годов
-  rdf:type :Категория_по_дате_постройки .
+  rdf:type owl:Class, :Категория_по_дате_постройки .
 
 :Строение_189x_годов
-  rdf:type :Категория_по_дате_постройки .
+  rdf:type owl:Class, :Категория_по_дате_постройки .
 
 :Строение_18_века
-  rdf:type :Категория_по_дате_постройки .
+  rdf:type owl:Class, :Категория_по_дате_постройки .
 
 :Строение_190x_годов
-  rdf:type :Категория_по_дате_постройки .
+  rdf:type owl:Class, :Категория_по_дате_постройки .
 
 :Строение_191x_годов
-  rdf:type :Категория_по_дате_постройки .
+  rdf:type owl:Class, :Категория_по_дате_постройки .
 
 :Строение_192x_годов
-  rdf:type :Категория_по_дате_постройки .
+  rdf:type owl:Class, :Категория_по_дате_постройки .
 
 :Строение_19_века
-  rdf:type :Категория_по_дате_постройки .
+  rdf:type owl:Class, :Категория_по_дате_постройки .
 
 :Строение_второй_половины_19_века
-  rdf:type :Категория_по_дате_постройки .
+  rdf:type owl:Class, :Категория_по_дате_постройки .
 
 :Строение_первой_половины_19_века
-  rdf:type :Категория_по_дате_постройки .
+  rdf:type owl:Class, :Категория_по_дате_постройки .
 
 :Строение_первой_половины_20_века
-  rdf:type :Категория_по_дате_постройки .
+  rdf:type owl:Class, :Категория_по_дате_постройки .
 
 :Субрайон
   rdf:type owl:Class ;
@@ -499,8 +482,8 @@
   rdfs:subClassOf :Нежилое_здание .
 
 :Торговый_центр
-  skos:example "Гостиный двор" ;
   rdf:type owl:Class ;
+  skos:example "Гостиный двор" ;
   rdfs:subClassOf :Торговое_здание .
 
 :Улица
@@ -516,77 +499,68 @@
   rdfs:subClassOf :Жилое_здание .
 
 :Частота_публикации
-  rdf:type owl:Class ;
-  rdfs:subClassOf :classes .
+  rdf:type owl:Class .
 
 :Числовое_название_улицы
   rdf:type owl:Class ;
   rdfs:subClassOf :Название_улицы .
 
 :автор
-  rdfs:range :Автор ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:range :Автор .
 
 :адрес
+  rdf:type rdf:Property ;
   rdfs:domain :Объект_с_адресом ;
   rdfs:range :Адрес_id ;
-  :деф "Эти категории наследуют за собой значение #адрес.", "#Домовладение/#ЖАКТ/#многоэтажка имеют две характеристики, два параметра: это #улица и #номер_дома (иначе говоря #адрес)." ;
-  rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  :деф "Эти категории наследуют за собой значение #адрес.", "#Домовладение/#ЖАКТ/#многоэтажка имеют две характеристики, два параметра: это #улица и #номер_дома (иначе говоря #адрес)." .
 
 :архив
-  rdfs:range :Архив ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:range :Архив .
 
 :включает-здание
-  rdfs:domain :Здание ;
   rdf:type rdf:Property ;
+  rdfs:domain :Здание ;
   rdfs:subPropertyOf :включает-объект .
 
 :включает-объект
-  owl:inverseOf :находится-на-территории ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  owl:inverseOf :находится-на-территории .
 
 :включает-субрайон
-  rdfs:range :Субрайон ;
   rdf:type rdf:Property ;
+  rdfs:range :Субрайон ;
   rdfs:subPropertyOf :включает-территорию .
 
 :включает-территорию
-  owl:inverseOf :входит-в-территорию ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  owl:inverseOf :входит-в-территорию .
 
 :владелец
-  rdfs:domain :Городской_объект ;
-  rdfs:range "Организация,Персона" ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:domain :Городской_объект ;
+  rdfs:range (:Организация :Персона) .
 
 :владелец-сайта
-  rdfs:domain :Сайт ;
   rdf:type rdf:Property ;
+  rdfs:domain :Сайт ;
   rdfs:subPropertyOf :автор .
 
 :время-работы
-  rdfs:range tf:RegularTimeInterval ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:range tf:RegularTimeInterval .
 
 :входит-в-территорию
+  rdf:type rdf:Property ;
   rdfs:domain :Территория ;
   rdfs:range :Территория ;
   :деф "Должна быть возможность подниматься и спускаться по категориям локации" ;
-  rdf:type rdf:Property ;
   rdfs:subPropertyOf :является-частью .
 
 :год
-  rdfs:range tf:Year ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:range tf:Year .
 
 :год-верхняя-граница
   rdf:type rdf:Property ;
@@ -597,43 +571,38 @@
   rdfs:subPropertyOf :год .
 
 :деф
+  rdf:type rdf:Property ;
   skos:note "ДЕФиниция, определение" ;
-  rdfs:subPropertyOf :properties ;
-  rdfs:range rdfs:Literal ;
-  rdf:type rdf:Property .
+  rdfs:subPropertyOf skos:definition ;
+  rdfs:range rdfs:Literal .
 
 :дом
+  rdf:type rdf:Property ;
   rdfs:domain :Объект_с_адресом ;
   rdfs:range :Номер_дома ;
-  :деф "#Домовладение/#ЖАКТ/#многоэтажка имеют две характеристики, два параметра: это #улица и #номер_дома (иначе говоря #адрес)." ;
-  rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  :деф "#Домовладение/#ЖАКТ/#многоэтажка имеют две характеристики, два параметра: это #улица и #номер_дома (иначе говоря #адрес)." .
 
 :здание
-  rdfs:range :Здание ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:range :Здание .
 
 :значение
-  rdfs:domain :Object ;
-  rdfs:range :Value ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:domain :Object ;
+  rdfs:range :Value .
 
 :имеет-территорию
-  owl:inverseOf :часть-территории ;
-  :деф "Должна быть возможность подниматься и спускаться по категориям локации: Увидеть все районы – войти в район / Увидеть все кварталы и микрорайона, войти в выбранный / Увидеть домовладения/ЖАКТы/многоэтажки" ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  owl:inverseOf :часть-территории ;
+  :деф "Должна быть возможность подниматься и спускаться по категориям локации: Увидеть все районы – войти в район / Увидеть все кварталы и микрорайона, войти в выбранный / Увидеть домовладения/ЖАКТы/многоэтажки" .
 
 :индекс
-  rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdf:type rdf:Property .
 
 :индекс_городского_объекта
+  rdf:type rdf:Property ;
   rdfs:domain :Городской_объект ;
   rdfs:range :Индекс_объекта ;
-  rdf:type rdf:Property ;
   rdfs:subPropertyOf :индекс .
 
 :индекс_источника
@@ -641,85 +610,77 @@
   rdfs:subPropertyOf :индекс .
 
 :квартал
-  rdf:type rdf:Property ;
+  rdf:type owl:FunctionalProperty ;
   rdfs:domain :Объект_с_адресом ;
-  rdfs:range :Номер_квартала ;
-  rdfs:subPropertyOf :properties .
+  rdfs:range :Номер_квартала .
 
 :комментарий
+  rdf:type rdf:Property ;
   rdfs:comment "ремарка, комментарий" ;
-  rdfs:subPropertyOf :properties ;
-  rdf:type rdf:Property .
+  rdfs:subPropertyOf skos:note .
 
 :конец
-  owl:equivalentProperty tf:end ;
   rdf:type rdf:Property ;
+  owl:equivalentProperty tf:end ;
   rdfs:subPropertyOf :начало-существование .
 
 :контакты
-  rdfs:domain :Объект_с_локацией ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:domain :Объект_с_локацией .
 
 :короткий-id
-  rdfs:domain :Источник ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:domain :Источник .
 
 :название
-  rdfs:domain :Городской_объект ;
-  rdfs:range rdfs:Literal ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:domain :Городской_объект ;
+  rdfs:range rdfs:Literal .
 
 :находится-на-территории
+  rdf:type rdf:Property ;
   rdfs:domain :Объект_с_точечными_координатами ;
   rdfs:range :Территория ;
-  rdf:type rdf:Property ;
   rdfs:subPropertyOf :является-частью .
 
 :начало
-  owl:equivalentProperty tf:start ;
   rdf:type rdf:Property ;
+  owl:equivalentProperty tf:start ;
   rdfs:subPropertyOf :начало-существование .
 
 :начало-здания
+  rdf:type rdf:Property ;
   rdfs:domain :Здание ;
   rdfs:range tf:Date ;
   :деф "#многоэтажный_дом имеет категории возраста (#$дата постройки)" ;
-  rdf:type rdf:Property ;
   rdfs:subPropertyOf :начало .
 
 :начало-существование
-  rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdf:type rdf:Property .
 
 :номер-дома
-  rdfs:domain :Здание ;
-  rdfs:range :Номер_дома ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:domain :Здание ;
+  rdfs:range :Номер_дома .
 
 :номер-квартала
+  rdf:type owl:FunctionalProperty, rdf:Property ;
   rdfs:domain :Квартал ;
   rdfs:range :Номер_квартала ;
-  rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  :деф "#кварталы имеют номера" .
 
 :о
   rdf:type rdf:Property ;
   rdfs:subPropertyOf :описание .
 
 :описание
-  rdfs:range rdfs:Literal ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:range rdfs:Literal .
 
 :организация
-  rdfs:domain :Здание ;
-  rdfs:range :Организация ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:domain :Здание ;
+  rdfs:range :Организация .
 
 :построено
   rdf:type rdf:Property ;
@@ -734,13 +695,12 @@
   rdfs:subPropertyOf :построено .
 
 :прекратило-существование
-  rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdf:type rdf:Property .
 
 :расположено-в
+  rdf:type rdf:Property ;
   rdfs:domain :Здание ;
   rdfs:range :Территория ;
-  rdf:type rdf:Property ;
   rdfs:subPropertyOf :входит-в-территорию .
 
 :сдано
@@ -756,56 +716,50 @@
   rdfs:subPropertyOf :начало .
 
 :состоит-из
-  owl:inverseOf :является-частью ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  owl:inverseOf :является-частью .
 
 :телефон
-  :деф "Категории, связанные с локацией, наследуются от старшей к младшим: дом 18 по ул. Пушкинской имеет индивидуальные категории, добавленные при анализе вручную (#строение_1914_года, #три окна #правая парадная #заложенная парадная #греческие мотивы) + подтягивает категории (#телефон или #собственник) из-за того, что входит в домовладение «Пушкинская 18» по координатам) + тянет категории своего квартала и района (например, категорию, которая содержит #избирательный_округ" ;
   rdf:type rdf:Property ;
+  :деф "Категории, связанные с локацией, наследуются от старшей к младшим: дом 18 по ул. Пушкинской имеет индивидуальные категории, добавленные при анализе вручную (#строение_1914_года, #три окна #правая парадная #заложенная парадная #греческие мотивы) + подтягивает категории (#телефон или #собственник) из-за того, что входит в домовладение «Пушкинская 18» по координатам) + тянет категории своего квартала и района (например, категорию, которая содержит #избирательный_округ" ;
   rdfs:subPropertyOf :контакты .
 
 :тип-раздела-источника
-  rdfs:domain :Источник ;
-  rdfs:range :Раздел_источника ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:domain :Источник ;
+  rdfs:range :Раздел_источника .
 
 :улица
+  rdf:type rdf:Property ;
   rdfs:domain :Объект_с_адресом ;
   rdfs:range :Улица ;
-  :деф "#Домовладение/#ЖАКТ/#многоэтажка имеют две характеристики, два параметра: это #улица и #номер_дома (иначе говоря #адрес)." ;
-  rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  :деф "#Домовладение/#ЖАКТ/#многоэтажка имеют две характеристики, два параметра: это #улица и #номер_дома (иначе говоря #адрес)." .
 
 :уничтожено
   rdf:type rdf:Property ;
   rdfs:subPropertyOf :прекратило-существование .
 
 :файл
-  rdfs:range :Локация_в_файловой_системе ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:range :Локация_в_файловой_системе .
 
 :фото
-  rdfs:domain :Городской_объект ;
-  rdfs:range :File ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:domain :Городской_объект ;
+  rdfs:range :File .
 
 :частота-в-неделю
-  rdfs:domain :Периодическое_издание ;
-  rdfs:range :Частота_публикации ;
   rdf:type rdf:Property ;
-  rdfs:subPropertyOf :properties .
+  rdfs:domain :Периодическое_издание ;
+  rdfs:range :Частота_публикации .
 
 :часть-комплекса-зданий
+  rdf:type rdf:Property ;
   rdfs:domain :Здание ;
   rdfs:range :Комплекс_зданий ;
-  rdf:type rdf:Property ;
   rdfs:subPropertyOf :является-частью .
 
 :является-частью
-  rdfs:subPropertyOf :properties ;
-  rdf:type rdf:Property .
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf dc:partOf .
 

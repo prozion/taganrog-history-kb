@@ -7,8 +7,8 @@ City_time a:tabtree/OntologyPart dc/title:"Онтология для город�
 		foaf ns:http://xmlns.com/foaf/0.1/
 		tabtree ns:https://purl.org/tabtree/core#
 		tf ns:https://purl.org/tabtree/time#
-	classes +a:owl/Class +section-hierarchy-inverse-relation:subclass-of
-		Категория_по_дате_постройки subclass-of:Категория +section-hierarchy-inverse-relation:a
+	classes +a:owl/Class +hi-inv-rel:subclass-of
+		Категория_по_дате_постройки subclass-of:Категория +hi-inv-rel:a
 			Строение_18_века
 			Строение_19_века
 			Строение_первой_половины_19_века
@@ -26,7 +26,7 @@ City_time a:tabtree/OntologyPart dc/title:"Онтология для город�
 			Строение_190x_годов
 			Строение_191x_годов
 			Строение_192x_годов
-	properties +a:rdf/Property +section-hierarchy-inverse-relation:subproperty-of
+	properties +a:rdf/Property +hi-inv-rel:subproperty-of
 		время-работы range:tf/RegularTimeInterval
 		год range:tf/Year
 			год-верхняя-граница
